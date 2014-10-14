@@ -6,7 +6,7 @@ Algumas coisas que acham que se podiam mudar.
 
 3-Data final ou periodo de validade como dizem no enunciado dos leilões está contido na mesma data da respectiva área de exploração(chave estrangeira?). HM: Não percebi bem o que é esta parte, mas não me parece fazer sentido ser uma chave estrangeira
 
-4-Coordendas da AC( CIE e CSD ) estão dentro das AE. 
+4-Coordendas da AC( CIE e CSD ) estão dentro das AE.
 
 
 jà nao tive tempo de acabar de ler a parte das empresas mas parece-me a haver coisas a mudar (nº fiscal unico ->chave primaria)
@@ -14,7 +14,7 @@ jà nao tive tempo de acabar de ler a parte das empresas mas parece-me a haver c
 
 <<<<<<<<Restrição de integridade>>>>>>>>
 
-No enunciado diz que exploração comercial dos recursos e das infraestruturas pressupõe o conceito de áreas de exploração criadas para o efeito. Cada uma destas áreas refere-se apenas a um recurso (1 só apenas) ou uma só infrastrutra nunca ambos. 
+No enunciado diz que exploração comercial dos recursos e das infraestruturas pressupõe o conceito de áreas de exploração criadas para o efeito. Cada uma destas áreas refere-se apenas a um recurso (1 só apenas) ou uma só infrastrutra nunca ambos.
 
 O nome da área indentifica-a independentemente de ser recurso ou infrastrutura.
 
@@ -25,6 +25,9 @@ O nome da área indentifica-a independentemente de ser recurso ou infrastrutura.
 Área de exploração infrastrutura: 50000 toneladas de minerio de zinco
 				  2000 toneladas de sardinhas
 				  3000 toneladas de Carapau
+
+
+
 
 Segundo o enunciado especificar isto na forma:
 "O atributo quantidade da entidade Y não pode ser superior a 10"
