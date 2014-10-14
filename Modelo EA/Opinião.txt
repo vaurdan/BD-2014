@@ -25,6 +25,8 @@ jà nao tive tempo de acabar de ler a parte das empresas mas parece-me a haver c
  - As coordenadas da AC devem estar dentro das coor. da AE.
  - A soma dos volumes máximos de todas as áreas de concessão não deve ultrapassar a capacidade do recurso nessa área de exploração.
  - Uma AE esta contida numa zona maritima quando as coordenadas de uma AE estao contidas em parte ou em todo nas coordenadas da zona maritima.
+ - Aos leilões de áreas de exploração de infraestrutura apenas se podem candidatar pessoas coletivas (empresas)
+
 ----
 
 No enunciado diz que exploração comercial dos recursos e das infraestruturas pressupõe o conceito de áreas de exploração criadas para o efeito. Cada uma destas áreas refere-se apenas a um recurso (1 só apenas) ou uma só infrastrutra nunca ambos.
