@@ -1,12 +1,12 @@
 Algumas coisas que acham que se podiam mudar.
 
-1-O atributo nome nas zonas maritimas devia estar sublinhado pois acho que é uma chave primária.
+1-O atributo nome nas zonas maritimas devia estar sublinhado pois acho que é uma chave primária. HM: Sim, todos os atributos precisam de uma chave primária.
 
-2-As áreas de exploração identificam-se pelo nome quer seja recursos ou infrastrutura(chave primária)
+2-As áreas de exploração identificam-se pelo nome quer seja recursos ou infrastrutura(chave primária) HM: Same de cima
 
-3-Data final ou periodo de validade como dizem no enunciado dos leilões está contido na mesma data da respectiva área de exploração(chave estrangeira?).
+3-Data final ou periodo de validade como dizem no enunciado dos leilões está contido na mesma data da respectiva área de exploração(chave estrangeira?). HM: Não percebi bem o que é esta parte, mas não me parece fazer sentido ser uma chave estrangeira
 
-4-Coordendas da AC( CIE e CSD ) estão dentro das AE.
+4-Coordendas da AC( CIE e CSD ) estão dentro das AE. 
 
 
 jà nao tive tempo de acabar de ler a parte das empresas mas parece-me a haver coisas a mudar (nº fiscal unico ->chave primaria)
