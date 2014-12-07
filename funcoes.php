@@ -20,11 +20,11 @@ function esta_autenticado() {
 
 
 function get_header() {
-	echo "Header";
+	include ABSPATH . "/theme/header.php";
 }
 
 function get_footer() {
-	echo "Footer";
+	include ABSPATH . "/theme/footer.php";
 }
 
 /**
