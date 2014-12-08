@@ -19,6 +19,9 @@ function esta_autenticado() {
 		return true;
 	}
 
+	unset($_SESSION['username']);
+	unset($_SESSION['pin']);
+	$_SESSION['erro'] = "Número de Contríbuinte ou PIN inválido.";
 	return false;
 }
 

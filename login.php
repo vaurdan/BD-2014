@@ -20,7 +20,17 @@ get_header();
 ?>
 <h2>Bem Vindo ao Super Leilões</h2>
 <p>Para continuar, tem que iniciar sessão.</p>
-
+<?php if( isset($_SESSION['erro'] ) ) {
+	?>
+	<div class="ink-alert basic error" role="alert">
+		<button class="ink-dismiss">&times;</button>
+		<p><b>Ocorreu um erro:</b> <? echo $_SESSION['erro'] ?></p>
+	</div>
+	<?
+	// Destroi a sessão
+	unset( $_SESSION['erro'] );
+}
+?>
 	<form class="ink-form" method="post">
 		<div class="control-group">
 			<label for="email">NIF</label>

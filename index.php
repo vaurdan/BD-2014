@@ -11,6 +11,10 @@ if( ! esta_autenticado() ) {
 }
 
 get_header();
+?>
 
+<h2>Bem Vindo ao Super Leilões.</h2>
+<p>Para continuar, selecione um dos menús.</p>
+<?php
 get_footer();
 

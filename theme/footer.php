@@ -1,5 +1,5 @@
 </div>
-</section>
+</div>
 </div>
 <footer class="clearfix">
 	<div class="ink-grid">

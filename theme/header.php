@@ -110,14 +110,6 @@
 			Super Leilões<small>BD2014</small>
 		</h1>
 
-		<nav class="ink-navigation xlarge-push-right large-push-right xlarge-right-space large-right-space half-top-space" >
-			<ul class="menu horizontal black">
-				<li class="active"><a href="#">item</a></li>
-				<li><a href="#">item</a></li>
-				<li><a href="#">item</a></li>
-			</ul>
-		</nav>
-
 		<?php if( esta_autenticado() ): ?>
 			<nav class="ink-navigation xlarge-push-right large-push-right half-top-space">
 				<ul class="menu horizontal black">
@@ -132,5 +124,26 @@
 
 	</header>
 
-	<section class="column-group gutters article">
-		<div class="xlarge-70 large-70 medium-60 small-100 tiny-100">
+	<div class="column-group gutters article">
+
+		<?php if( esta_autenticado() ): ?>
+		<div class="all-25 small-100 tiny-100">
+			<nav class="ink-navigation">
+				<ul class="menu vertical black">
+					<li class="heading"><a href="index.php">Início</a></li>
+					<li>
+						<a href="#">Leilões</a>
+						<ul class="submenu">
+							<li><a href="#">Listar</a></li>
+							<li><a href="#">Inscrever</a></li>
+							<li><a href="#">Licitar</a></li>
+							<li><a href="#">Ver estado</a></li>
+						</ul>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="all-65 small-100 tiny-100">
+		<?php else:?>
+			<div class="all-50 vertical-padding">
+		<?php endif;?>
