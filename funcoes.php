@@ -14,10 +14,42 @@ function esta_autenticado() {
 
 	// Verificamos quantas colunas devolveu
 	$resultado = $query->fetch( PDO::FETCH_NUM );
-	return $resultado[0] == 1;
+	if ( $resultado[0] == 1 ) {
+		obter_utilizador( $_SESSION['username'] );
+		return true;
+	}
 
+	return false;
 }
 
+/**
+ * Devolve o objecto do utilizador
+ *
+ * @return User|UserEmpresa utilizador
+ */
+function obter_utilizador($nif) {
+	global $db, $user;
+
+	if (! isset( $_SESSION['username'] ) ) {
+		return false;
+	}
+
+	if ( is_object( $user ) && $user instanceof User )
+		return $user;
+
+	$query = $db->prepare( "SELECT COUNT(nif) FROM pessoac WHERE nif = ?" );
+	$query->execute( array( $_SESSION['username'] ) );
+
+	$resultado = $query->fetch( PDO::FETCH_NUM );
+	if ( $resultado[0] == 1 ) {
+		$user = new UserEmpresa( $nif );
+	} else {
+		$user = new User( $nif );
+	}
+	/* @var User|UserEmpresa */
+	return $user;
+
+}
 
 function get_header() {
 	include ABSPATH . "/theme/header.php";
@@ -36,4 +68,25 @@ function get_footer() {
  */
 function escape( $string ) {
 	return htmlspecialchars( stripslashes( trim( $string ) ) );
+}
+
+function print_sql_error() {
+	global $db;
+
+	$errors = $db->errorInfo();
+	echo($errors[2]);
+}
+
+/**
+ * Devolve o utilizador ligado
+ * @return bool|User Utilizador
+ */
+function get_user() {
+	global $user;
+
+	if( $user instanceof User) {
+		return $user;
+	}
+
+	return false;
 }

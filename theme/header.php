@@ -107,16 +107,28 @@
 	<header class="clearfix vertical-padding">
 
 		<h1 class="logo xlarge-push-left large-push-left">
-			site name<small>smaller text</small>
+			Super Leilões<small>BD2014</small>
 		</h1>
 
-		<nav class="ink-navigation xlarge-push-right large-push-right half-top-space">
+		<nav class="ink-navigation xlarge-push-right large-push-right xlarge-right-space large-right-space half-top-space" >
 			<ul class="menu horizontal black">
 				<li class="active"><a href="#">item</a></li>
 				<li><a href="#">item</a></li>
 				<li><a href="#">item</a></li>
 			</ul>
 		</nav>
+
+		<?php if( esta_autenticado() ): ?>
+			<nav class="ink-navigation xlarge-push-right large-push-right half-top-space">
+				<ul class="menu horizontal black">
+					<li class="disabled">
+						<a href="#">Bem vindo, <strong> <?php echo get_user()->nome?> </strong></a>
+					</li>
+					<li> <a href="<?php echo SITEURL?>/logout.php">Logout</a></li>
+				</ul>
+			</nav>
+		<?php endif; ?>
+
 
 	</header>
 

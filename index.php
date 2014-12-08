@@ -10,3 +10,7 @@ if( ! esta_autenticado() ) {
 	exit();
 }
 
+get_header();
+
+get_footer();
+
