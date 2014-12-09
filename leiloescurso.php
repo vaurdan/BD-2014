@@ -61,7 +61,7 @@ $dia_hoje = date("Y-m-d");
 		<div id="iniciar" class="tabs-content">
 			<h2>Lista de Leilões a Iniciarem-se</h2>
 			<p>
-				Leilões a i. Hoje é <?php echo $dia_hoje ?>.
+				Leilões a iniciarem-se no futuro. Hoje é <?php echo $dia_hoje ?>.
 			</p>
 			<table class="ink-table bordered hover alternating">
 				<thead>
