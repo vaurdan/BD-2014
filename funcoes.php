@@ -93,3 +93,13 @@ function get_user() {
 
 	return false;
 }
+
+/**
+ * Obriga ao utilizador estar autenticado.
+ */
+function forcar_autenticacao() {
+	if( ! esta_autenticado() ) {
+		header("Location: login.php");
+		exit();
+	}
+}

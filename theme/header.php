@@ -110,7 +110,7 @@
 			Super Leilões<small>BD2014</small>
 		</h1>
 
-		<?php if( esta_autenticado() ): ?>
+		<?php if( esta_autenticado() ):  ?>
 			<nav class="ink-navigation xlarge-push-right large-push-right half-top-space">
 				<ul class="menu horizontal black">
 					<li class="disabled">
@@ -131,19 +131,14 @@
 			<nav class="ink-navigation">
 				<ul class="menu vertical black">
 					<li class="heading"><a href="index.php">Início</a></li>
-					<li>
-						<a href="#">Leilões</a>
-						<ul class="submenu">
-							<li><a href="#">Listar</a></li>
-							<li><a href="#">Inscrever</a></li>
-							<li><a href="#">Licitar</a></li>
-							<li><a href="#">Ver estado</a></li>
-						</ul>
-					</li>
+					<li><a href="<?echo SITEURL ?>/leiloescurso.php">Listar Leilões</a></li>
+					<li><a href="#">Inscrever</a></li>
+					<li><a href="#">Licitar</a></li>
+					<li><a href="#">Ver estado</a></li>
 				</ul>
 			</nav>
 		</div>
-		<div class="all-65 small-100 tiny-100">
+		<div class="all-75 small-100 tiny-100">
 		<?php else:?>
 			<div class="all-50 vertical-padding">
 		<?php endif;?>
