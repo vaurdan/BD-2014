@@ -32,15 +32,10 @@ if( !isset( $_POST['leilao'] ) && !isset( $_GET['leilao'] ) ) {
 			</select>
 		</div>
 	</div>
-	<div class="control-group">
-		<label for="email">PIN</label>
-		<div class="control">
-			<input id="pin" name="pin" type="password" placeholder="O SEU PIN">
-		</div>
-	</div>
+
 	<div class="control-group">
 		<div class="control">
-			<input id="submit" name="submit" type="submit" value="Submeter">
+			<input id="submit" name="submit" type="submit" value="Inscrever">
 		</div>
 	</div>
 
