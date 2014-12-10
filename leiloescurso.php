@@ -145,7 +145,8 @@ $dia_hoje = date("Y-m-d");
 				if( $query->rowCount() == 0) {
 					echo "<tr width='100%'><td>Não existe nenhum leilão para apresentar.</td></tr>";
 				}
-				?>				</tbody>
+				?>
+				</tbody>
 			</table>
 		</div>
 	</div>
