@@ -18,6 +18,7 @@ $dia_hoje = date("Y-m-d");
 		<ul class="tabs-nav">
 			<li><a class="tabs-tab" href="#curso">Em Curso</a></li>
 			<li><a class="tabs-tab" href="#iniciar">A Iniciar</a></li>
+			<li><a class="tabs-tab" href="#historico">Histórico</a></li>
 		</ul>
 
 		<!-- Now just place your content -->
@@ -34,15 +35,17 @@ $dia_hoje = date("Y-m-d");
 					<th class="align-left">Empresa Leiloeira</th>
 					<th class="align-left">Nome</th>
 					<th class="align-left">Valor Base</th>
-					<th class="align-left">Tipo</th>
+					<th class="align-left">Final</th>
 
 				</tr>
 				</thead>
 				<tbody>
 					<?php
 
-					$query = $db->prepare("SELECT * FROM leilao WHERE dia <= ?");
-					$query->execute( array( $dia_hoje ) );
+					$query = $db->prepare("SELECT *, ADDDATE(l.dia, INTERVAL r.nrdias DAY) AS final  FROM leilao l, leilaor r
+						WHERE (l.dia, l.nrleilaonodia, l.nif) = (r.dia, r.nrleilaonodia, r.nif)
+						AND CURDATE() > ADDDATE(l.dia, INTERVAL r.nrdias DAY)");
+					$query->execute();
 
 					foreach( $query->fetchAll(PDO::FETCH_ASSOC) as $linha) { ?>
 						<tr>
@@ -51,9 +54,13 @@ $dia_hoje = date("Y-m-d");
 							<td><?php echo $linha['nif']; ?></td>
 							<td><?php echo $linha['nome']; ?></td>
 							<td><?php echo $linha['valorbase']; ?></td>
-							<td><?php echo $linha['tipo']; ?></td>
+							<td><?php echo $linha['final']; ?></td>
 						</tr>
-					<?}?>
+					<?}
+					if( $query->rowCount() == 0) {
+						echo "<tr width='100%'><td>Não existe nenhum leilão para apresentar.</td></tr>";
+					}
+					?>
 				</tbody>
 			</table>
 
@@ -71,15 +78,17 @@ $dia_hoje = date("Y-m-d");
 					<th class="align-left">Empresa Leiloeira</th>
 					<th class="align-left">Nome</th>
 					<th class="align-left">Valor Base</th>
-					<th class="align-left">Tipo</th>
+					<th class="align-left">Final</th>
 
 				</tr>
 				</thead>
 				<tbody>
 				<?php
 
-				$query = $db->prepare("SELECT * FROM leilao WHERE dia > ?");
-				$query->execute( array( $dia_hoje ) );
+				$query = $db->prepare("SELECT *, ADDDATE(l.dia, INTERVAL r.nrdias DAY) AS final  FROM leilao l, leilaor r
+						WHERE (l.dia, l.nrleilaonodia, l.nif) = (r.dia, r.nrleilaonodia, r.nif)
+						AND CURDATE() < l.dia)");
+				$query->execute();
 
 				foreach( $query->fetchAll(PDO::FETCH_ASSOC) as $linha) { ?>
 					<tr>
@@ -88,10 +97,55 @@ $dia_hoje = date("Y-m-d");
 						<td><?php echo $linha['nif']; ?></td>
 						<td><?php echo $linha['nome']; ?></td>
 						<td><?php echo $linha['valorbase']; ?></td>
-						<td><?php echo $linha['tipo']; ?></td>
+						<td><?php echo $linha['final']; ?></td>
 					</tr>
-				<?}?>
-				</tbody>
+				<?}
+				if( $query->rowCount() == 0) {
+					echo "<tr width='100%'><td>Não existe nenhum leilão para apresentar.</td></tr>";
+				}
+				?>				</tbody>
+			</table>
+		</div>
+
+		<div id="historico" class="tabs-content">
+			<h2>Histórico de Leilões</h2>
+			<p>
+				Leilões que já acabaram. Serve de histórico.
+			</p>
+			<table class="ink-table bordered hover alternating">
+				<thead>
+				<tr>
+					<th class="align-left">Dia</th>
+					<th class="align-left">Nº Leilão</th>
+					<th class="align-left">Empresa Leiloeira</th>
+					<th class="align-left">Nome</th>
+					<th class="align-left">Valor Base</th>
+					<th class="align-left">Final</th>
+
+				</tr>
+				</thead>
+				<tbody>
+				<?php
+
+				$query = $db->prepare("SELECT *, ADDDATE(l.dia, INTERVAL r.nrdias DAY) AS final  FROM leilao l, leilaor r
+						WHERE (l.dia, l.nrleilaonodia, l.nif) = (r.dia, r.nrleilaonodia, r.nif)
+						AND CURDATE() < ADDDATE(l.dia, INTERVAL r.nrdias DAY)");
+				$query->execute();
+
+				foreach( $query->fetchAll(PDO::FETCH_ASSOC) as $linha) { ?>
+					<tr>
+						<td><?php echo $linha['dia']; ?></td>
+						<td><?php echo $linha['nrleilaonodia']; ?></td>
+						<td><?php echo $linha['nif']; ?></td>
+						<td><?php echo $linha['nome']; ?></td>
+						<td><?php echo $linha['valorbase']; ?></td>
+						<td><?php echo $linha['final']; ?></td>
+					</tr>
+				<?}
+				if( $query->rowCount() == 0) {
+					echo "<tr width='100%'><td>Não existe nenhum leilão para apresentar.</td></tr>";
+				}
+				?>				</tbody>
 			</table>
 		</div>
 	</div>
