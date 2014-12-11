@@ -131,3 +131,16 @@ function get_valor_base_licitacao( $lid ) {
 	$resultado = $query->fetch(PDO::FETCH_ASSOC);
 	return $resultado['valorbase'];
 }
+
+function get_maior_licitacao( $lid ) {
+	global $db;
+
+	$query = $db->prepare( "SELECT * FROM lance WHERE leilao = :lid and valor = (SELECT max(valor) FROM lance WHERE leilao = :lid);" );
+	$query->execute( array( 'lid' => $lid ) );
+
+	if( $query->rowCount() == 0 )
+		return false;
+
+	$resultado = $query->fetch(PDO::FETCH_ASSOC);
+	return $resultado;
+}

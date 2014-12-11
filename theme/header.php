@@ -134,7 +134,7 @@
 					<li><a href="<?echo SITEURL ?>/leiloescurso.php">Listar Leilões</a></li>
 					<li><a href="<?echo SITEURL ?>/inscrever.php">Inscrever</a></li>
 					<li><a href="<?echo SITEURL ?>/meusleiloes.php">Os Meus Leilões</a></li>
-					<li><a href="#">Ver estado</a></li>
+					<li><a href="<?echo SITEURL ?>/decorrer.php">Leilões a Decorrer</a></li>
 				</ul>
 			</nav>
 		</div>
