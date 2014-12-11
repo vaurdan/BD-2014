@@ -51,9 +51,9 @@ $dia_hoje = date("Y-m-d");
 						<tr>
 							<td><?php echo $linha['dia']; ?></td>
 							<td><?php echo $linha['nrleilaonodia']; ?></td>
-							<td><?php echo $linha['nif']; ?></td>
+							<td><?php echo get_nome($linha['nif']); ?></td>
 							<td><?php echo $linha['nome']; ?></td>
-							<td><?php echo $linha['valorbase']; ?></td>
+							<td><?php echo $linha['valorbase']; ?>€</td>
 							<td><?php echo $linha['final']; ?></td>
 						</tr>
 					<?}
@@ -94,9 +94,9 @@ $dia_hoje = date("Y-m-d");
 					<tr>
 						<td><?php echo $linha['dia']; ?></td>
 						<td><?php echo $linha['nrleilaonodia']; ?></td>
-						<td><?php echo $linha['nif']; ?></td>
+						<td><?php echo get_nome($linha['nif']); ?></td>
 						<td><?php echo $linha['nome']; ?></td>
-						<td><?php echo $linha['valorbase']; ?></td>
+						<td><?php echo $linha['valorbase']; ?>€</td>
 						<td><?php echo $linha['final']; ?></td>
 					</tr>
 				<?}
@@ -136,9 +136,9 @@ $dia_hoje = date("Y-m-d");
 					<tr>
 						<td><?php echo $linha['dia']; ?></td>
 						<td><?php echo $linha['nrleilaonodia']; ?></td>
-						<td><?php echo $linha['nif']; ?></td>
+						<td><?php echo get_nome($linha['nif']); ?></td>
 						<td><?php echo $linha['nome']; ?></td>
-						<td><?php echo $linha['valorbase']; ?></td>
+						<td><?php echo $linha['valorbase']; ?>€</td>
 						<td><?php echo $linha['final']; ?></td>
 					</tr>
 				<?}

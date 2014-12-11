@@ -144,3 +144,16 @@ function get_maior_licitacao( $lid ) {
 	$resultado = $query->fetch(PDO::FETCH_ASSOC);
 	return $resultado;
 }
+
+function get_nome($nif) {
+	global $db;
+
+	$query = $db->prepare( "SELECT nome FROM pessoa NATURAL JOIN pessoac WHERE nif = :nif" );
+	$query->execute( array( 'nif' => $nif ) );
+
+	if( $query->rowCount() == 0 )
+		return $nif;
+
+	$resultado = $query->fetch(PDO::FETCH_ASSOC);
+	return $resultado['nome'];
+}

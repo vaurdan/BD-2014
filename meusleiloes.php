@@ -19,6 +19,7 @@ if (! isset( $_GET['licitar'] ) ):
 		<th class="align-left">Empresa Leiloeira</th>
 		<th class="align-left">Nome</th>
 		<th class="align-left">Valor Base</th>
+		<th class="align-left">Maior Licitação</th>
 		<th class="align-left"></th>
 
 	</tr>
@@ -38,7 +39,8 @@ if (! isset( $_GET['licitar'] ) ):
 			<td><?php echo $linha['dia']; ?></td>
 			<td><?php echo $linha['nif']; ?></td>
 			<td><?php echo $linha['nome']; ?> #<?echo $linha['nrleilaonodia']?></td>
-			<td><?php echo $linha['valorbase']; ?></td>
+			<td style="text-align: right;"><?php echo $linha['valorbase']; ?> €</td>
+			<td style="text-align: right;"><?php echo (int)get_valor_maximo_licitacao($linha['lid']) ?> €</td>
 			<td><a href="?licitar=<?php echo $linha['lid'] ?>">Licitar</a></td>
 		</tr>
 	<?}
