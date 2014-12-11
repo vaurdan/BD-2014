@@ -122,7 +122,7 @@ function get_valor_maximo_licitacao( $lid ) {
 function get_valor_base_licitacao( $lid ) {
 	global $db;
 
-	$query = $db->prepare( "SELECT valorbase FROM leilao WHERE (dia, nrleilaonodia, nif) = (SELECT dia, nrleilaonodia, nif FROM leilaor WHERE lid = ?)" );
+	$query = $db->prepare( "SELECT valorbase FROM leilao WHERE (dia, nrleilaonodia, nif) = (SELECT DATE(dia), nrleilaonodia, nif FROM leilaor WHERE lid = ?)" );
 	$query->execute( array( $lid ) );
 
 	if( $query->rowCount() == 0 )
