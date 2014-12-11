@@ -133,7 +133,7 @@
 					<li class="heading"><a href="index.php">Início</a></li>
 					<li><a href="<?echo SITEURL ?>/leiloescurso.php">Listar Leilões</a></li>
 					<li><a href="<?echo SITEURL ?>/inscrever.php">Inscrever</a></li>
-					<li><a href="#">Licitar</a></li>
+					<li><a href="<?echo SITEURL ?>/meusleiloes.php">Os Meus Leilões</a></li>
 					<li><a href="#">Ver estado</a></li>
 				</ul>
 			</nav>

@@ -103,3 +103,31 @@ function forcar_autenticacao() {
 		exit();
 	}
 }
+
+function get_valor_maximo_licitacao( $lid ) {
+	global $db;
+
+	$query = $db->prepare( "SELECT max(valor) FROM lance WHERE leilao = ?" );
+	$query->execute( array( $lid ) );
+
+	if( $query->rowCount() == 0 )
+		return false;
+
+
+	$resultado = $query->fetch(PDO::FETCH_NUM);
+	return $resultado[0];
+}
+
+
+function get_valor_base_licitacao( $lid ) {
+	global $db;
+
+	$query = $db->prepare( "SELECT valorbase FROM leilao WHERE (dia, nrleilaonodia, nif) = (SELECT dia, nrleilaonodia, nif FROM leilaor WHERE lid = ?)" );
+	$query->execute( array( $lid ) );
+
+	if( $query->rowCount() == 0 )
+		return false;
+
+	$resultado = $query->fetch(PDO::FETCH_ASSOC);
+	return $resultado['valorbase'];
+}
