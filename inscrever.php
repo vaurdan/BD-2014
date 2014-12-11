@@ -39,6 +39,7 @@ if( !isset( $_POST['leilao'] ) && !isset( $_GET['leilao'] ) ) {
 		</div>
 	</div>
 
+	<a href="<?php echo SITEURL?>/inscrever-massa.php">Inscrever em Múltiplos Leilões</a>
 </form>
 <?php
 } else {
