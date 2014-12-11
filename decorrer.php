@@ -25,13 +25,13 @@ foreach( $query->fetchAll(PDO::FETCH_ASSOC) as $leilao ) {
 	$tempo_falta = date("j \d\i\a\s", $tempo_falta);
 	?>
 	<h3 style="margin-bottom: 0px;"><?php echo $leilao['nome'] ?></h3>
-	<small>Colocado por <?php echo $leilao['nif']?> a <?php echo $leilao['dia']?>. É o <?php echo $leilao['nrleilaonodia']?>º leilão do dia. </small>
+	<small>Colocado por <?php echo get_nome($leilao['nif'])?> a <?php echo $leilao['dia']?>. É o <?php echo $leilao['nrleilaonodia']?>º leilão do dia. </small>
 
 	<p>Falta <?php echo $tempo_falta ?> para terminar o leilão.<br/>
 	<?
 	if( $licitacao = get_maior_licitacao( $leilao['lid'] ) ) {
 		?>
-		O maior lance foi colocado por <?php echo $licitacao['pessoa'] ?> com o valor de <?php echo $licitacao['valor'] ?>€.
+		O maior lance foi colocado por <?php echo get_nome($licitacao['pessoa']) ?> com o valor de <?php echo $licitacao['valor'] ?>€.
 		<?
 	} else {
 		?>
